@@ -1,0 +1,377 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IAIOracle",
+						"name": "_aiOracle",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IAIOracle",
+						"name": "expected",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IAIOracle",
+						"name": "found",
+						"type": "address"
+					}
+				],
+				"name": "UnauthorizedCallbackSource",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "prompt",
+						"type": "string"
+					}
+				],
+				"name": "promptRequest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "input",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "output",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "callbackData",
+						"type": "bytes"
+					}
+				],
+				"name": "promptsUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "aiOracle",
+				"outputs": [
+					{
+						"internalType": "contract IAIOracle",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "output",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "callbackData",
+						"type": "bytes"
+					}
+				],
+				"name": "aiOracleCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "prompt",
+						"type": "string"
+					}
+				],
+				"name": "calculateAIResult",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "callbackGasLimit",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					}
+				],
+				"name": "estimateFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "prompt",
+						"type": "string"
+					}
+				],
+				"name": "getAIResult",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "isFinalized",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "prompts",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "requests",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "input",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "output",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "modelId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint64",
+						"name": "gasLimit",
+						"type": "uint64"
+					}
+				],
+				"name": "setCallbackGasLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"aiOracleCallback(uint256,bytes,bytes)": {
+					"details": "the callback function in OAO, should add the modifier onlyAIOracleCallback!",
+					"params": {
+						"callbackData": "user-defined data (The same as when the user call aiOracle.requestCallback)",
+						"output": "AI model's output",
+						"requestId": "Id for the request in OAO (unique per request)"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Prompt.sol": "Prompt"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/AIOracleCallbackReceiver.sol": {
+			"keccak256": "0x62cefc5eb9c71d1971b8b24b9173d7a90f63a5083dfbf71434e2fa1566c490b0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://229d4374ad7bf25bd79f3e874bfff45fa01e3a31cba32258184beec495187d3a",
+				"dweb:/ipfs/QmcmYxSNaimaV4VkqUEdhCPZKJUAvo2m3SzoU5WUKXpq6F"
+			]
+		},
+		"contracts/Prompt.sol": {
+			"keccak256": "0xd65b1c44d0e3e0c6dec5a92316392dd204c137324f9a145ff285068242a72e24",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e188f44d1099d95b8f85172534b3d077b0ac809fb0057e06bbfb389a8f01518e",
+				"dweb:/ipfs/QmNmjupmtNAmKzXde7JBMvkvX1jxGWtbAE2hrJyPkXLn2S"
+			]
+		},
+		"contracts/interfaces/IAIOracle.sol": {
+			"keccak256": "0x7c403244a7dee4634063709b2dff0e03285473011e27f06ebb9599924c261ac6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fbf073c81ec30066039c7729d4efc508827a33b578083bb2f195e96791634ef0",
+				"dweb:/ipfs/QmYiTqgqkx12jzXaoBmrUwi7Kr6oBi7U8NBbWGWyxcrxjR"
+			]
+		}
+	},
+	"version": 1
+}
